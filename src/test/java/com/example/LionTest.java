@@ -40,15 +40,15 @@ public class LionTest {
     public int result;
 
     @Test
-    public void getKittensTest(){
-        Lion lion = new Lion(feline);
+    public void getKittensTest() throws Exception {
+        Lion lion = new Lion("Самка", feline);
         Mockito.when(feline.getKittens()).thenReturn(volume);
         Assert.assertEquals(result,lion.getKittens());
     }
 
     @Test
     public void getFoodTest() throws Exception {
-        Lion lion = new Lion(feline);
+        Lion lion = new Lion("Самка", feline);
         List<String> food = List.of("Животные", "Птицы", "Печеньки");
         Mockito.when(feline.getFood("Хищник")).thenReturn(food);
         Assert.assertEquals(food, lion.getFood());
@@ -56,20 +56,20 @@ public class LionTest {
 
     @Test
     public void doesHaveManeTrue() throws Exception {
-        Lion lion = new Lion("Самец");
+        Lion lion = new Lion("Самец", feline);
         Assert.assertTrue(lion.doesHaveMane());
     }
 
     @Test
     public void doesHaveManeFalse() throws Exception {
-        Lion lion = new Lion("Самка");
+        Lion lion = new Lion("Самка", feline);
         Assert.assertFalse(lion.doesHaveMane());
     }
 
     @Test
     public void doesHaveManeNone() throws Exception {
         Exception exception = Assert.assertThrows(Exception.class, () -> {
-            new Lion("Самки");
+            new Lion("Самки", feline);
         });
         Assert.assertEquals("Используйте допустимые значения пола животного - самец или самка", exception.getMessage());
     }

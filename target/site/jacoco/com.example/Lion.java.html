@@ -5,12 +5,12 @@ import java.util.List;
 
 public class Lion {
 
-
-
     boolean hasMane;
     Feline feline;
 
-<span class="fc" id="L13">    public Lion(String sex) throws Exception {</span>
+<span class="fc" id="L11">    public Lion(String sex, Feline feline) throws Exception {</span>
+<span class="fc" id="L12">        this.feline = feline;</span>
+
 <span class="fc bfc" id="L14" title="All 2 branches covered.">        if (&quot;Самец&quot;.equals(sex)) {</span>
 <span class="fc" id="L15">            hasMane = true;</span>
 <span class="fc bfc" id="L16" title="All 2 branches covered.">        } else if (&quot;Самка&quot;.equals(sex)) {</span>
@@ -20,21 +20,16 @@ public class Lion {
         }
 <span class="fc" id="L21">    }</span>
 
-
-<span class="fc" id="L24">    public Lion(Feline feline) {</span>
-<span class="fc" id="L25">        this.feline = feline;</span>
-<span class="fc" id="L26">    }</span>
-
     public int getKittens() {
-<span class="fc" id="L29">        return feline.getKittens();</span>
+<span class="fc" id="L24">        return feline.getKittens();</span>
     }
 
     public boolean doesHaveMane() {
-<span class="fc" id="L33">        return hasMane;</span>
+<span class="fc" id="L28">        return hasMane;</span>
     }
 
     public List&lt;String&gt; getFood() throws Exception {
-<span class="fc" id="L37">        return feline.getFood(&quot;Хищник&quot;);</span>
+<span class="fc" id="L32">        return feline.getFood(&quot;Хищник&quot;);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
